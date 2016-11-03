@@ -10,71 +10,20 @@ $Menu0 = "Home of the Command Line Cowboy"
 $Menu=$Menu0
 
 $Menu1 = "Handle files"
-$Menu11 = "Cleanup files to File Hub"
-$Menu12 = "Log/Cleanup big files"
+  $Menu11 = "Cleanup files to File Hub"
+    $Menu111 = "Do cleanup"
+    $Menu112 = "Show cleanup folders & target folder"
+  $Menu12 = "Log/Cleanup big files"
 
 $Menu2 = "Backup"
-$Menu21 = "Start Backup"
+  $Menu21 = "Start Backup"
 
 $Menu3 = "Handle GIT repositories"
-$Menu31 = "Backup GIT repositories"
+  $Menu31 = "Backup GIT repositories"
 
 $Menu66 = "Back to main menu"
 $Menu99 = "Show description"
 
-
-#------------------------------------------------------------------------------
-#Functions
-
-function Show-Description()
-{
-  #feeding the narcistic beast
-  "# Description"
-  "# -----------"
-  "# Windows Management tool "
-  "# via homebrew powershell enviroment"
-  "#"
-  "# Author : David Lejeune"
-  "# Created : 03/11/2016"
-  "#"
-  "# Task goals"
-  "# ----------"
-  "# Managing varying tasks on Windows OS via CLI"
-  "# 1)Files handling"
-  "#      - cleaning up files to File Hub"
-  "#      - Logging and/or deleting big files"
-  "# 2)Backup"
-  "# 2)Handle GIT repositories"
-  ""
-}
-
-
-function show-logo(){
-	#feed the narcistic beast
-	.\lib\ps1\show-logo.ps1
-}
-
-
-function show-menuheader(){
-	#feed the narcistic beast
-	echo ' #####################################'
-	echo "    $Menu                "
-	echo ' #####################################'
-	echo ''
-}
-
-function show-menumain()
-{
-  #making this script sexy
-    Write-Host " Main Menu :";
-    Write-Host "";
-    Write-Host '    1. '$Menu1;
-    Write-Host '    2. '$Menu2;
-    Write-Host '    3. '$Menu3;
-    Write-Host '   ';
-    Write-Host '    99.'$Menu99;
-    Write-Host "";
-}
 
 function show-menu1()
 {
@@ -121,8 +70,8 @@ function Log-Action()
 
 function show-top()
 {
-  show-logo;
-  show-menuheader;
+  .\lib\ps1\show-logo.ps1
+  .\lib\ps1\show-menuheader;
 }
 
 function ask-menumain()
@@ -166,7 +115,7 @@ function ask-menumain()
                 #Write-Host "`nYou have selected $(($Menu99).ToUpper())`n";
                 $Menu = "$(($Menu99).ToUpper())";
                 show-top;
-                Show-Description;
+                .\lib\ps1\show-description.ps1;
                 ask-continue;
             }
 
@@ -314,7 +263,7 @@ function ask-continue()
 
 function startup(){
   show-top;
-  show-menumain;
+  .\lib\ps1\show-menumain.ps1;
   ask-menumain;
 }
 
@@ -327,9 +276,7 @@ function quit-this(){
 #------------------------------------------------------------------------------
 #Script
 
-show-top;
-show-menumain;
-ask-menumain;
+startup
 
 
 $sw.Stop()
