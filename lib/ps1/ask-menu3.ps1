@@ -15,7 +15,7 @@ switch ($Menu)
         {
           $Menu = "$(($Menu32).ToUpper())";
           .\lib\ps1\show-top.ps1;
-          import-csv .\lib\cmd-lets\git-handler\git_repos.csv;
+          import-csv ".\lib\cmd-lets\git-handler\git_repos.csv" | format-table
           .\lib\ps1\ask-continue.ps1;
         }
       3

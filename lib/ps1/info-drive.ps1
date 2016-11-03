@@ -29,7 +29,7 @@ Get-WmiObject Win32_DiskDrive | % {
         #Size        = $_.Size
         #FreeSpace   = $_.FreeSpace
 
-      } | Select DriveLetter , VolumeName , DiskModel, Partition , FreeSpace , RawSize , FreePercentage  | Where {$_.DriveLetter -eq $drive } | format-table
+      } | Select DriveLetter , VolumeName , DiskModel, Partition , FreeSpace , RawSize , FreePercentage  | Where {$_.DriveLetter -eq $drive } #| format-table
     }
 
   }

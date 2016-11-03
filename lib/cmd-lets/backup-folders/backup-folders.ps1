@@ -27,5 +27,5 @@ $StopWatch = [system.diagnostics.stopwatch]::startNew()
     }
 
 Write-host "`nShowing current drive status : "
-Write-Host "------------------------------`n"
+Write-Host "------------------------------"
 .\lib\ps1\info-drive.ps1

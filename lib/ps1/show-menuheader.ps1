@@ -1,5 +1,5 @@
 #feed the narcistic beast
-echo ' #####################################'
-echo "    $Menu                "
-echo ' #####################################'
-echo ''
+write-host " #####################################" -ForegroundColor Magenta
+write-host "    $Menu                " -ForegroundColor Red
+write-host " #####################################" -ForegroundColor Magenta
+write-host ""

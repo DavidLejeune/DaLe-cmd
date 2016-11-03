@@ -66,9 +66,9 @@ Else
         #$StopWatch.Elapsed
         sleep(2)
     }
-
+cd $pwd;
 write-host "`n`n`nDisplaying all git folders @ $($GIT) :";
 write-host "---------------------------------------------`n";
-dir $GIT;
-cd $pwd;
+ls $GIT;
+
 write-host "`nTask completed in $($StopWatch.Elapsed | select TotalMinutes)"

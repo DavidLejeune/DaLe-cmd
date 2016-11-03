@@ -24,10 +24,10 @@ Loop
 f.Close
 
 Wscript.Echo ""
-Wscript.Echo " #####################################################"
-Wscript.Echo " #               PROGRAM CONCLUDED                   #"
-Wscript.Echo " #                    HOORAAAH                       #"
-Wscript.Echo " #####################################################"
+Wscript.Echo " #####################################"
+Wscript.Echo " #            I dun did              #"
+Wscript.Echo " #        the do that diddies        #"
+Wscript.Echo " #####################################"
 Wscript.Echo ""
 Wscript.Echo ""
 
