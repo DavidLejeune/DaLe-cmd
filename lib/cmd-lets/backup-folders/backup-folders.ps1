@@ -10,10 +10,7 @@ $drive="$(($drive).ToUpper()):";
 
 if ($drive.length -gt 0)
 {
-  Write-host "Hey dumb-dumb , enter a valid drive letter next time`n" -ForegroundColor Red
-}
-else
-{
+
   $StopWatch = [system.diagnostics.stopwatch]::startNew()
   #import data
     $folders = Import-Csv -Delimiter "," -Path ".\lib\cmd-lets\backup-folders\backup_folders.csv"
@@ -30,12 +27,17 @@ else
           Write-Host "------------------------------------------------"
           sleep(2)
           $Host.UI.RawUI.ForegroundColor = 'Blue'
-          robocopy /E /R:1 /W:2  $source_folder $target_folder
+          #robocopy /E /R:1 /W:2  $source_folder $target_folder
           $StopWatch.Elapsed
           sleep(5)
       }
 
+  $Host.UI.RawUI.ForegroundColor = 'yellow'
   Write-host "`nShowing current drive status : "
   Write-Host "------------------------------"
   .\lib\ps1\info-drive.ps1
+}
+else
+{
+  Write-host "Hey dumb-dumb , enter a valid drive letter next time`n" -ForegroundColor Red
 }
