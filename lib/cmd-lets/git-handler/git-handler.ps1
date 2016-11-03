@@ -3,23 +3,27 @@ $StopWatch = [system.diagnostics.stopwatch]::startNew()
 
 
 
+  $Host.UI.RawUI.ForegroundColor = 'white'
 Write-Host "Checking if GIT folder exists"
 $GIT=".\file_hub\GIT"
 if (Test-Path $GIT)
 {
+  $Host.UI.RawUI.ForegroundColor = 'gray'
   Write-Host "GIT folder found"
 }
 Else
 {
+  $Host.UI.RawUI.ForegroundColor = 'DarkGreen'
   Write-Host "Creating folder ..."
   mkdir $GIT
   if (Test-Path $GIT)
   {
+    $Host.UI.RawUI.ForegroundColor = 'white'
     Write-Host "GIT folder created"
   }
   Else
   {
-    mkdir $GIT
+    $Host.UI.RawUI.ForegroundColor = 'red'
     Write-Host "GIT folder not created"
     exit
   }
@@ -39,6 +43,7 @@ Else
         $git_url = $repo.git_url
         $git_url = "$($drive)$($git_url)"
 
+        $Host.UI.RawUI.ForegroundColor = 'yellow'
         Write-Host ""
         Write-Host "----------------------------------------------------------------"
         Write-Host "Repo name : $($git_name)"
@@ -51,14 +56,18 @@ Else
         $GITpath = "$($GIT)\$($git_name)"
         if (Test-Path $GITpath)
         {
+          $Host.UI.RawUI.ForegroundColor = 'white'
           Write-Host "GIT folder exists"
           cd $GITpath
+          $Host.UI.RawUI.ForegroundColor = 'blue'
           git pull
         }
         Else
         {
+          $Host.UI.RawUI.ForegroundColor = 'darkgreen'
           Write-Host "GIT folder doesn't exist >> creating folder"
           cd $GIT
+          $Host.UI.RawUI.ForegroundColor = 'magenta'
           git clone $git_url
         }
 
@@ -67,8 +76,12 @@ Else
         sleep(2)
     }
 cd $pwd;
+$Host.UI.RawUI.ForegroundColor = 'darkgreen'
 write-host "`n`n`nDisplaying all git folders @ $($GIT) :";
 write-host "---------------------------------------------`n";
+
+$Host.UI.RawUI.ForegroundColor = 'cyan'
 ls $GIT;
 
-write-host "`nTask completed in $($StopWatch.Elapsed | select TotalMinutes)"
+$Host.UI.RawUI.ForegroundColor = 'magenta'
+write-host "`nTask completed in $($StopWatch.Elapsed | select TotalMinutes)`n"
