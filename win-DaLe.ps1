@@ -16,6 +16,8 @@ $Menu1 = "Handle files"
 
 $Menu2 = "Backup"
   $Menu21 = "Start Backup"
+  $Menu22 = "View Backup variables"
+  $Menu23 = "Edit Backup variables"
 
 $Menu3 = "Handle GIT repositories"
   $Menu31 = "Backup GIT repositories"

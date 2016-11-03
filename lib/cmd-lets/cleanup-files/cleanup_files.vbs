@@ -19,6 +19,7 @@ Do Until f.AtEndOfStream
   strLine = f.ReadLine
   objStartFolder = strLine
   call Main
+
 Loop
 f.Close
 

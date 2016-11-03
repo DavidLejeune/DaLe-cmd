@@ -7,6 +7,8 @@ switch ($Menu)
           {
             $Menu = "$(($Menu21).ToUpper())";
             .\lib\ps1\show-top.ps1;
+            .\lib\cmd-lets\backup-folders\backup-folders.ps1;
+            .\lib\ps1\ask-continue.ps1;
           }
 
         2
