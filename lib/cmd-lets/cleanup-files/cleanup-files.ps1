@@ -1,2 +1,1 @@
-cscript //nologo cleanup_files.vbs
-pause
+cscript //nologo .\lib\cmd-lets\cleanup-files\cleanup_files.vbs

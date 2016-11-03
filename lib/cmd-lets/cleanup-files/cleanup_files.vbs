@@ -1,32 +1,10 @@
 Set objFSO = CreateObject("Scripting.FileSystemObject")
-call ClearScreen
 
-Wscript.Echo "      ____              __        "
-Wscript.Echo "     / __ \   ____ _   / /      ___ "
-Wscript.Echo "    / / / /  / __ `/  / /      / _ \"
-Wscript.Echo "   / /_/ /  / /_/ /  / /___   /  __/"
-Wscript.Echo "  /_____/   \__,_/  /_____/   \___/ "
-Wscript.Echo ""
-Wscript.Echo "           +-+-+-+-+-+-+-+-+"
-Wscript.Echo "           |t|e|r|m|i|n|a|l|"
-Wscript.Echo "           +-+-+-+-+-+-+-+-+"
-Wscript.Echo ""
-Wscript.Echo " ^> Name : CleanUp Files.vbs"
-Wscript.Echo " ^> Description : trying to create some order in"
-Wscript.Echo " ^>               chaos"
-Wscript.Echo " ^> Author : David Lejeune"
-Wscript.Echo " ^> Created : 10-07-15 13:50"
-Wscript.Echo ""
-Wscript.Echo " #####################################################"
-Wscript.Echo " #               RUNNING VBS SCRIPT                  #"
-Wscript.Echo " #                                                   #"
-Wscript.Echo " #####################################################"
-Wscript.Echo ""
 iTotal = 0
 
 
 'This is the folder where all your shit will be moved to in an orderly fashion
-filename = "target_folder.txt"
+filename = ".\lib\cmd-lets\cleanup-files\target_folder.txt"
 Set f = objFSO.OpenTextFile(filename,1)
 strLine = f.ReadLine
 objTargetFolder = strLine
@@ -35,7 +13,7 @@ objTargetFolder = strLine
 
 
 'For each folder (subfolders not included) file will be moved to target folder
-filename = "cleanup_folders.txt"
+filename = ".\lib\cmd-lets\cleanup-files\cleanup_folders.txt"
 Set f = objFSO.OpenTextFile(filename,1)
 Do Until f.AtEndOfStream
   strLine = f.ReadLine
@@ -133,17 +111,5 @@ Next
 Wscript.Echo "Created " & iNew & " new Type Folder(s)" & vbCrlf & "Moved " & sDelete & " duplicate file(s)" & vbCrlf & "Moved " & iCount & " new file(s)"
 Wscript.Sleep 3500
 
-
-End Sub
-
-
-
-
-
-
-Sub ClearScreen()
-For i = 1 to 45
-    Wscript.Echo ""
-Next
 
 End Sub

@@ -5,15 +5,15 @@ switch ($Menu)
     {
         1
           {
-            $Menu = "$(($Menu11).ToUpper())";
+            $Menu = "$(($Menu111).ToUpper())";
             .\lib\ps1\show-top.ps1;
-            .\lib\ps1\show-menu11.ps1;
-            .\lib\ps1\ask-menu11.ps1;
+            .\lib\cmd-lets\cleanup-files\cleanup-files.ps1;
+            .\lib\ps1\ask-continue.ps1;
           }
 
         2
           {
-            $Menu = "$(($Menu12).ToUpper())";
+            $Menu = "$(($Menu112).ToUpper())";
             .\lib\ps1\show-top.ps1;
           }
 
