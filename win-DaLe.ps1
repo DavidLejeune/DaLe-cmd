@@ -4,9 +4,10 @@
 #Script Variables
 $DC1 = "POLIFORMADL"
 $DC2 = "COM"
-
-$Menu = "Home of the Command Line Cowboy"
-$Menu1 = "Handle files";
+$Menu = ""
+$Menu0 = "Home of the Command Line Cowboy"
+$Menu=$Menu0
+$Menu1 = "Handle files"
 $Menu2 = "Backup"
 $Menu99 = "Show description"
 
@@ -149,7 +150,24 @@ function ask-menumain()
 
 function ask-continue()
 {
-  $Continue = Read-Host -Prompt 'Press enter to return to menu or q to quit : ';
+  ""
+  $Continue = Read-Host -Prompt 'Press enter to return to menu or q to quit ';
+  switch ($Continue)
+      {
+          q
+            {
+              Write-Host "Thank you , please come again ...."
+              Write-Host ""
+            }
+
+          default
+            {
+                Write-Host "`nYou have selected $(($Menu2).ToUpper())`n";
+                show-top
+                $Menu=$Menu0
+                show-menumain
+            }
+      }
 }
 
 
