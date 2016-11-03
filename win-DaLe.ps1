@@ -11,7 +11,7 @@ $Menu=$Menu0
 $Menu1 = "Handle files"
   $Menu11 = "Cleanup files to File Hub"
     $Menu111 = "Do cleanup"
-    $Menu112 = "Show cleanup folders & target folder"
+    $Menu112 = "Show cleanup & startup folder(s)"
   $Menu12 = "Log/Cleanup big files"
 
 $Menu2 = "Backup"
