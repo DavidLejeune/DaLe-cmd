@@ -6,18 +6,35 @@ $DC1 = "POLIFORMADL"
 $DC2 = "COM"
 
 $Menu = "Home of the Command Line Cowboy"
-$Menu1 = "Create new OU";
-$Menu2 = "New User"
-$Menu3 = "Bulk Usermanagement based on CSV"
-$Menu4 = "Check User existence"
-$Menu5 = "Bulk delete User from CSV"
-$Menu6 = "Show all users"
-$Menu7 = "Delete a user"
-$Menu99 = "Show Description"
+$Menu1 = "Handle files";
+$Menu2 = "Backup"
+$Menu99 = "Show description"
 
 
 #------------------------------------------------------------------------------
 #Functions
+
+function Show-Description()
+{
+  #feeding the narcistic beast
+  "# Description"
+  "# -----------"
+  "# Windows Management tool "
+  "# via homebrew powershell enviroment"
+  "#"
+  "# Author : David Lejeune"
+  "# Created : 03/11/2016"
+  "#"
+  "# Task goals"
+  "# ----------"
+  "# Managing varying tasks on Windows OS via CLI"
+  "# 1)Files handling"
+  "#      - cleaning up files to File Hub"
+  "#      - Logging and/or deleting big files"
+  "# 2)Handle GIT repositories"
+  ""
+}
+
 
 function show-logo(){
 	#feed the narcistic beast
@@ -33,6 +50,18 @@ function show-menuheader(){
 	echo ''
 }
 
+function show-menumain()
+{
+  #making this script sexy
+    Write-Host " Main Menu :";
+    Write-Host "";
+    Write-Host '    1. '$Menu1;
+    Write-Host '    2. '$Menu2;
+    Write-Host '   ';
+    Write-Host '    99.'$Menu99;
+    Write-Host "";
+}
+
 
 function Log-Action()
 {
@@ -41,76 +70,92 @@ function Log-Action()
   Add-Content .\log\script_logbook.csv $Entry
 }
 
+function show-top()
+{
+  show-logo;
+  show-menuheader;
+}
+
+function ask-menumain()
+{
+  #Select action
+  $Menu = Read-Host -Prompt 'Select an option ';
+  $sw = [Diagnostics.Stopwatch]::StartNew()
+  switch ($Menu)
+      {
+          1
+            {
+                Write-Host "`nYou have selected $(($Menu1).ToUpper())`n";
+                $Menu = $Menu1;
+                Create-OU;
+            }
+
+          2
+            {
+                Write-Host "`nYou have selected $(($Menu2).ToUpper())`n";
+                $Menu = $Menu2;
+                Create-User;
+            }
+
+          3
+            {
+                Write-Host "`nYou have selected $(($Menu3).ToUpper())`n";
+                $Menu = $Menu3;
+                Bulk-UserManagement;
+            }
+
+          4
+            {
+                Write-Host "`nYou have selected $(($Menu4).ToUpper())`n";
+                $Menu = $Menu4;
+                Check-UserExistence;
+            }
+          5
+            {
+                Write-Host "`nYou have selected $(($Menu5).ToUpper())`n";
+                $Menu = $Menu5;
+                Bulk-UserDelete;
+            }
+          6
+            {
+                Write-Host "`nYou have selected $(($Menu6).ToUpper())`n";
+                $Menu = $Menu6;
+                Show-Users;
+            }
+          7
+            {
+                Write-Host "`nYou have selected $(($Menu7).ToUpper())`n";
+                $Menu = $Menu7;
+                Delete-User;
+            }
+          99
+            {
+                #Write-Host "`nYou have selected $(($Menu99).ToUpper())`n";
+                $Menu = "$(($Menu99).ToUpper())";
+                show-top;
+                Show-Description;
+            }
+
+          default {"The choice could not be determined."}
+      }
+
+      $sw.Stop()
+      $time_elapsed = $sw.Elapsed.TotalSeconds
+      Write-Host " *** Task completed in "$time_elapsed" seconds. ***"
+      Log-Action
+      ask-continue
+}
+
+
+function ask-continue()
+{
+  $Continue = Read-Host -Prompt 'Press enter to return to menu or q to quit : ';
+}
 
 
 #------------------------------------------------------------------------------
 #Script
 
-
-show-logo;
-show-menuheader;
-
-#Select action
-$Menu = Read-Host -Prompt 'Select an option ';
-$sw = [Diagnostics.Stopwatch]::StartNew()
-switch ($Menu)
-    {
-        1
-          {
-              Write-Host "`nYou have selected $(($Menu1).ToUpper())`n";
-              $Menu = $Menu1;
-              Create-OU;
-          }
-
-        2
-          {
-              Write-Host "`nYou have selected $(($Menu2).ToUpper())`n";
-              $Menu = $Menu2;
-              Create-User;
-          }
-
-        3
-          {
-              Write-Host "`nYou have selected $(($Menu3).ToUpper())`n";
-              $Menu = $Menu3;
-              Bulk-UserManagement;
-          }
-
-        4
-          {
-              Write-Host "`nYou have selected $(($Menu4).ToUpper())`n";
-              $Menu = $Menu4;
-              Check-UserExistence;
-          }
-        5
-          {
-              Write-Host "`nYou have selected $(($Menu5).ToUpper())`n";
-              $Menu = $Menu5;
-              Bulk-UserDelete;
-          }
-        6
-          {
-              Write-Host "`nYou have selected $(($Menu6).ToUpper())`n";
-              $Menu = $Menu6;
-              Show-Users;
-          }
-        7
-          {
-              Write-Host "`nYou have selected $(($Menu7).ToUpper())`n";
-              $Menu = $Menu7;
-              Delete-User;
-          }
-        99
-          {
-              Write-Host "`nYou have selected $(($Menu99).ToUpper())`n";
-              $Menu = $Menu99;
-              Show-Description;
-          }
-
-        default {"The choice could not be determined."}
-    }
-
-    $sw.Stop()
-    $time_elapsed = $sw.Elapsed.TotalSeconds
-    Write-Host " *** Task completed in "$time_elapsed" seconds. ***"
-    Log-Action
+show-top;
+show-menumain;
+ask-menumain;

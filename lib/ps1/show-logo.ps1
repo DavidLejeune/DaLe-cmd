@@ -1,4 +1,5 @@
-Write-Host '       ____              __        '
+cls
+Write-Host '      ____              __        '
 Write-Host '     / __ \   ____ _   / /      ___ '
 Write-Host '    / / / /  / __ `/  / /      / _ \'
 Write-Host '   / /_/ /  / /_/ /  / /___   /  __/'
