@@ -21,6 +21,8 @@ $Menu2 = "Backup"
 
 $Menu3 = "Handle GIT repositories"
   $Menu31 = "Backup GIT repositories"
+  $Menu32 = "View GIT repositories"
+  $Menu33 = "Edit GIT repositories"
 
 $Menu66 = "Back to main menu"
 $Menu99 = "Show description"

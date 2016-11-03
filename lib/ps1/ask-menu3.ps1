@@ -3,17 +3,28 @@ $Menu = Read-Host -Prompt 'Select an option ';
 $sw = [Diagnostics.Stopwatch]::StartNew()
 switch ($Menu)
     {
-        1
-          {
-            $Menu = "$(($Menu31).ToUpper())";
-            .\lib\ps1\show-top.ps1;
-          }
+      1
+        {
+          $Menu = "$(($Menu31).ToUpper())";
+          .\lib\ps1\show-top.ps1;
+          .\lib\cmd-lets\git-handler\git-handler.ps1;
+          .\lib\ps1\ask-continue.ps1;
+        }
 
-        2
-          {
-            $Menu = "$(($Menu32).ToUpper())";
-            .\lib\ps1\show-top.ps1;
-          }
+      2
+        {
+          $Menu = "$(($Menu32).ToUpper())";
+          .\lib\ps1\show-top.ps1;
+          import-csv .\lib\cmd-lets\git-handler\git_repos.csv;
+          .\lib\ps1\ask-continue.ps1;
+        }
+      3
+        {
+          $Menu = "$(($Menu33).ToUpper())";
+          .\lib\ps1\show-top.ps1;
+          notepad .\lib\cmd-lets\git-handler\git_repos.csv;
+          .\lib\ps1\ask-continue.ps1;
+        }
 
         66
           {
