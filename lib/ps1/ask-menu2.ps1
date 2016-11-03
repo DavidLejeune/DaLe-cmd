@@ -15,6 +15,16 @@ switch ($Menu)
           {
             $Menu = "$(($Menu22).ToUpper())";
             .\lib\ps1\show-top.ps1;
+            write-host "Note : full target-folder is built with drive from Menu1";
+            import-csv .\lib\cmd-lets\backup-folders\backup-folders.csv;
+            .\lib\ps1\ask-continue.ps1;
+          }
+        3
+          {
+            $Menu = "$(($Menu23).ToUpper())";
+            .\lib\ps1\show-top.ps1;
+            notepad .\lib\cmd-lets\backup-folders\backup-folders.csv;
+            .\lib\ps1\ask-continue.ps1;
           }
 
         66
