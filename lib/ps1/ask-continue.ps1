@@ -1,4 +1,4 @@
-""
+write-host "" -ForegroundColor red
 $Continue = Read-Host -Prompt 'Press enter to return to menu or q to quit ';
 switch ($Continue)
     {

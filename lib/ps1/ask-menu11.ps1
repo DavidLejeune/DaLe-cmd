@@ -6,6 +6,7 @@ switch ($Menu)
         1
           {
             $Menu = "$(($Menu111).ToUpper())";
+
             .\lib\ps1\show-top.ps1;
             .\lib\cmd-lets\cleanup-files\cleanup-files.ps1;
             .\lib\ps1\ask-continue.ps1;

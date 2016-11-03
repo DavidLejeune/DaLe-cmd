@@ -1,5 +1,6 @@
 #Select action
 $Menu = Read-Host -Prompt 'Select an option ';
+
 $sw = [Diagnostics.Stopwatch]::StartNew()
 switch ($Menu)
     {
