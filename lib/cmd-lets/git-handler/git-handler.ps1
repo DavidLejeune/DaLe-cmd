@@ -64,7 +64,7 @@ Else
         }
         Else
         {
-          $Host.UI.RawUI.ForegroundColor = 'darkgreen'
+          $Host.UI.RawUI.ForegroundColor = 'red'
           Write-Host "GIT folder doesn't exist >> creating folder"
           cd $GIT
           $Host.UI.RawUI.ForegroundColor = 'magenta'
@@ -78,10 +78,10 @@ Else
 cd $pwd;
 $Host.UI.RawUI.ForegroundColor = 'darkgreen'
 write-host "`n`n`nDisplaying all git folders @ $($GIT) :";
-write-host "---------------------------------------------`n";
+write-host "---------------------------------------------";
 
 $Host.UI.RawUI.ForegroundColor = 'cyan'
-ls $GIT;
+ls $GIT | select name | format-table;
 
 $Host.UI.RawUI.ForegroundColor = 'magenta'
-write-host "`nTask completed in $($StopWatch.Elapsed | select TotalMinutes)`n"
+write-host "Task completed in $($StopWatch.Elapsed | select TotalMinutes)`n"
