@@ -1,1 +1,9 @@
-source-folder,target-folder,
+source_folder,target_folder
+L:\DaLe,\DaLe
+C:\JAVA,\DaLe\Backup\JAVA
+C:\xampp\,\DaLe\Backup\xampp
+C:\Users\David\AndroidStudioProjects,\DaLe\Backup\AndroidStudioProjects
+C:\Users\David\Pictures,\DaLe\Pictures
+C:\Users\David\Music,\DaLe\Music
+C:\Users\David\Documents,\DaLe\Documents
+C:\Users\David\VirtualBox VMs,\DaLe\Backup\VirtualBox VMs
