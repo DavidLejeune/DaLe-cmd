@@ -16,6 +16,9 @@ $Menu12 = "Log/Cleanup big files"
 $Menu2 = "Backup"
 $Menu21 = "Start Backup"
 
+$Menu3 = "Handle GIT repositories"
+$Menu31 = "Backup GIT repositories"
+
 $Menu66 = "Back to main menu"
 $Menu99 = "Show description"
 
@@ -40,6 +43,7 @@ function Show-Description()
   "# 1)Files handling"
   "#      - cleaning up files to File Hub"
   "#      - Logging and/or deleting big files"
+  "# 2)Backup"
   "# 2)Handle GIT repositories"
   ""
 }
@@ -66,6 +70,7 @@ function show-menumain()
     Write-Host "";
     Write-Host '    1. '$Menu1;
     Write-Host '    2. '$Menu2;
+    Write-Host '    3. '$Menu3;
     Write-Host '   ';
     Write-Host '    99.'$Menu99;
     Write-Host "";
@@ -86,10 +91,22 @@ function show-menu1()
 function show-menu2()
 {
   #making this script sexy
-    Write-Host " Menu GIT :";
+    Write-Host " Menu Backup :";
     Write-Host "";
     Write-Host '    1. '$Menu21;
     Write-Host '    2. '$Menu22;
+    Write-Host '   ';
+    Write-Host '    66.'$Menu66;
+    Write-Host "";
+}
+
+function show-menu3()
+{
+  #making this script sexy
+    Write-Host " Menu GIT :";
+    Write-Host "";
+    Write-Host '    1. '$Menu31;
+    Write-Host '    2. '$Menu32;
     Write-Host '   ';
     Write-Host '    66.'$Menu66;
     Write-Host "";
@@ -130,7 +147,15 @@ function ask-menumain()
               show-menu2;
               ask-menu2;
             }
-            
+
+          3
+            {
+              $Menu = "$(($Menu3).ToUpper())";
+              show-top;
+              show-menu3;
+              ask-menu3;
+            }
+
           q
             {
               quit-this
@@ -145,13 +170,17 @@ function ask-menumain()
                 ask-continue;
             }
 
+            ""
+              {
+                  #Write-Host "`nYou have selected $(($Menu99).ToUpper())`n";
+                  $Menu = $Menu0
+                  startup
+              }
+
           default {"The choice could not be determined."}
       }
 
-      $sw.Stop()
-      $time_elapsed = $sw.Elapsed.TotalSeconds
-      Write-Host " *** Task completed in "$time_elapsed" seconds. ***"
-      Log-Action
+
 }
 
 
@@ -177,9 +206,7 @@ function ask-menu1()
           66
             {
                 $Menu = "$(($Menu66).ToUpper())";
-                show-top;
-                show-menumain;
-                ask-menumain;
+                startup
             }
           q
             {
@@ -189,13 +216,79 @@ function ask-menu1()
           default {"The choice could not be determined."}
       }
 
-      $sw.Stop()
-      $time_elapsed = $sw.Elapsed.TotalSeconds
-      Write-Host " *** Task completed in "$time_elapsed" seconds. ***"
-      Log-Action
+
+}
+
+function ask-menu2()
+{
+  #Select action
+  $Menu = Read-Host -Prompt 'Select an option ';
+  $sw = [Diagnostics.Stopwatch]::StartNew()
+  switch ($Menu)
+      {
+          1
+            {
+              $Menu = "$(($Menu21).ToUpper())";
+              show-top;
+            }
+
+          2
+            {
+              $Menu = "$(($Menu22).ToUpper())";
+              show-top;
+            }
+
+          66
+            {
+                $Menu = "$(($Menu66).ToUpper())";
+                startup
+            }
+          q
+            {
+              quit-this
+            }
+
+          default {"The choice could not be determined."}
+      }
+
+
 }
 
 
+function ask-menu3()
+{
+  #Select action
+  $Menu = Read-Host -Prompt 'Select an option ';
+  $sw = [Diagnostics.Stopwatch]::StartNew()
+  switch ($Menu)
+      {
+          1
+            {
+              $Menu = "$(($Menu31).ToUpper())";
+              show-top;
+            }
+
+          2
+            {
+              $Menu = "$(($Menu32).ToUpper())";
+              show-top;
+            }
+
+          66
+            {
+                $Menu = "$(($Menu66).ToUpper())";
+                startup
+            }
+          q
+            {
+              quit-this
+            }
+
+          default {"The choice could not be determined."}
+      }
+
+
+}
 
 
 function ask-continue()
@@ -212,10 +305,9 @@ function ask-continue()
           default
             {
                 #Write-Host "`nYou have selected $(($Menu2).ToUpper())`n";
-                show-top
+
                 $Menu=$Menu0
-                show-menumain
-                ask-menumain
+                startup
             }
       }
 }
@@ -238,3 +330,9 @@ function quit-this(){
 show-top;
 show-menumain;
 ask-menumain;
+
+
+$sw.Stop()
+$time_elapsed = $sw.Elapsed.TotalSeconds
+Write-Host " *** Task completed in "$time_elapsed" seconds. ***"
+Log-Action
