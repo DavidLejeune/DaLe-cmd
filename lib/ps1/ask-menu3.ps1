@@ -1,5 +1,7 @@
 #Select action
+$Host.UI.RawUI.ForegroundColor = 'white'
 $Menu = Read-Host -Prompt 'Select an option ';
+$Host.UI.RawUI.ForegroundColor = 'yellow'
 $sw = [Diagnostics.Stopwatch]::StartNew()
 switch ($Menu)
     {
@@ -15,6 +17,7 @@ switch ($Menu)
         {
           $Menu = "$(($Menu32).ToUpper())";
           .\lib\ps1\show-top.ps1;
+          $Host.UI.RawUI.ForegroundColor = 'blue'
           import-csv ".\lib\cmd-lets\git-handler\git_repos.csv" | format-table
           .\lib\ps1\ask-continue.ps1;
         }

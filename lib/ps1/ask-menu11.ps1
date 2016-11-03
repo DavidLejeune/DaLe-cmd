@@ -1,5 +1,7 @@
 #Select action
+$Host.UI.RawUI.ForegroundColor = 'white'
 $Menu = Read-Host -Prompt 'Select an option ';
+$Host.UI.RawUI.ForegroundColor = 'yellow'
 $sw = [Diagnostics.Stopwatch]::StartNew()
 switch ($Menu)
     {

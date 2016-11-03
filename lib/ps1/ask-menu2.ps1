@@ -1,5 +1,7 @@
 #Select action
+$Host.UI.RawUI.ForegroundColor = 'white'
 $Menu = Read-Host -Prompt 'Select an option ';
+$Host.UI.RawUI.ForegroundColor = 'yellow'
 $sw = [Diagnostics.Stopwatch]::StartNew()
 switch ($Menu)
     {
@@ -15,7 +17,9 @@ switch ($Menu)
           {
             $Menu = "$(($Menu22).ToUpper())";
             .\lib\ps1\show-top.ps1;
+            $Host.UI.RawUI.ForegroundColor = 'red'
             write-host "Note : full target-folder is built with drive choice (@ Do Backup)";
+            $Host.UI.RawUI.ForegroundColor = 'blue'
             import-csv ".\lib\cmd-lets\backup-folders\backup_folders.csv" | format-table
             .\lib\ps1\ask-continue.ps1;
           }
