@@ -15,15 +15,26 @@ del = "N"
 call Main()
 
 Wscript.Echo ""
+Wscript.Echo "What do you want to do with these big files?"
 Wscript.Echo ""
+Wscript.Echo "  1. Delete with confirmation"
+Wscript.Echo "  2. Auto delete "
 Wscript.Echo ""
+Wscript.Echo "  press ENTER to exit this menu"
 Wscript.Echo ""
-
-
-WScript.StdOut.Write("Enter the path to search for big files > ")
+WScript.StdOut.Write("Enter your choice > ")
 WScript.StdIn.Read(0)
 del = WScript.StdIn.ReadLine()
 
+If del = "N" Then
+Wscript.Echo "Bye bye birdie"
+End If
+If del = "1" Then
+call Main()
+End If
+If del = "2" Then
+call Main()
+End If
 
 Sub Main()
 
@@ -44,7 +55,7 @@ For Each objFile in colFiles
                 iTotalWithout = iTotalWithout - objFile.Size
 
 
-                'objFSO.DeleteFile objFile.Path
+
 
 
                 'Wscript.Echo "File deleted"
