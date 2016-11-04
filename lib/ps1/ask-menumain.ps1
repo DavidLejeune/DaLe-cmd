@@ -29,6 +29,14 @@ switch ($Menu)
             .\lib\ps1\ask-menu3.ps1;
           }
 
+        4
+          {
+            $Menu = "$(($Menu3).ToUpper())";
+            .\lib\ps1\show-top.ps1;
+            .\lib\ps1\show-menu4.ps1;
+            .\lib\ps1\ask-menu4.ps1;
+          }
+
         q
           {
             .\lib\ps1\quit-this.ps1

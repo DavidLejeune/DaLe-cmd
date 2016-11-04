@@ -24,6 +24,10 @@ $Menu3 = "Handle GIT repositories"
   $Menu32 = "View GIT repositories"
   $Menu33 = "Edit GIT repositories"
 
+$Menu4 = "Get info"
+  $Menu41 = "List drive info"
+  $Menu42 = "Show antivirus and firewall status"
+
 $Menu66 = "Back to main menu"
 $Menu99 = "Show description"
 
