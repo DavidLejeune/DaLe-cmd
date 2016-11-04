@@ -1,14 +1,14 @@
 Write-host "Showing all available drives : " -ForegroundColor White
 Write-Host "------------------------------`n" -ForegroundColor White
 
-$Host.UI.RawUI.ForegroundColor = 'blue'
+$Host.UI.RawUI.ForegroundColor = 'darkgreen'
 .\lib\ps1\info-drives.ps1
 
 $Host.UI.RawUI.ForegroundColor = 'white'
 $drive = Read-Host -Prompt '> Enter the target drive ';
 $drive="$(($drive).ToUpper()):";
 
-if ($drive.length -gt 0)
+if ($drive.length -eq 2)
 {
 
   $StopWatch = [system.diagnostics.stopwatch]::startNew()

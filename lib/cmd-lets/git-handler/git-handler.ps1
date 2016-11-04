@@ -73,7 +73,7 @@ Else
 
         cd $pwd
         #$StopWatch.Elapsed
-        sleep(2)
+        sleep(0.666)
     }
 cd $pwd;
 $Host.UI.RawUI.ForegroundColor = 'darkgreen'
