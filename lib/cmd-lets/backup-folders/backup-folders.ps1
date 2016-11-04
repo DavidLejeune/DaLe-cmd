@@ -27,7 +27,7 @@ if ($drive.length -gt 0)
           Write-Host "------------------------------------------------"
           sleep(2)
           $Host.UI.RawUI.ForegroundColor = 'Blue'
-          #robocopy /E /R:1 /W:2  $source_folder $target_folder
+          robocopy /E /R:1 /W:2  $source_folder $target_folder
           $StopWatch.Elapsed
           sleep(5)
       }
