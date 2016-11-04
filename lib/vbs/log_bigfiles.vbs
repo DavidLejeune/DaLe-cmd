@@ -12,6 +12,7 @@ objMB = objMB * 1
 
 Wscript.Echo ""
 
+iTooMuch = 0
 iTotalWithout = 0
 iTotal = 0
 iCount = 0
@@ -33,6 +34,8 @@ WScript.StdOut.Write("Enter your choice > ")
 WScript.StdIn.Read(0)
 del = WScript.StdIn.ReadLine()
 
+iTooMuch = 0
+
 If del = "N" Then
 Wscript.Echo "Bye bye birdie"
 End If
@@ -45,22 +48,21 @@ End If
 
 Sub Main()
 
-iTooMuch = 0
 Set objFolder = objFSO.GetFolder(objStartFolder)
 
 Set colFiles = objFolder.Files
 For Each objFile in colFiles
     'Wscript.Echo objFile.Name
-    iTotal = iTotal + objFile.Size
-    iTotalWithout = iTotalWithout + objFile.Size
+    iTotal = iTotal + (objFile.Size /1024 /1024)
+    iTotalWithout = iTotalWithout + (objFile.Size /1024 /1024)
             If objFile.Size /1024 /1024  > objMB Then
                 iCount = iCount + 1
                 Wscript.Echo ""
                 Wscript.Echo "PATH > " & Replace(objFile.Path , objFile.Name , "")
                 Wscript.Echo "NAME > " & objFile.Name
                 Wscript.Echo "SIZE > " & Left(objFile.Size /1024 /1024 ,4) & " MB"
-                iTooMuch = iTooMuch + objFile.Size
-                iTotalWithout = iTotalWithout - objFile.Size
+                iTooMuch = iTooMuch + (objFile.Size /1024 /1024)
+                iTotalWithout = iTotalWithout - (objFile.Size /1024 /1024)
 
 
                 If del = "1" Then
@@ -68,7 +70,7 @@ For Each objFile in colFiles
                     WScript.StdIn.Read(0)
                     del2 = WScript.StdIn.ReadLine()
                     If Ucase(del2) = "Y" Then
-                      iDeleted = iDeleted + objFile.Size
+                      iDeleted = iDeleted + (objFile.Size /1024 /1024)
                       objFSO.DeleteFile objFile.Path
                       Wscript.Echo "File deleted"
                     End If
@@ -81,7 +83,7 @@ For Each objFile in colFiles
 
 
                 If del = "2" Then
-                  iDeleted = iDeleted + objFile.Size
+                  iDeleted = iDeleted + (objFile.Size /1024 /1024)
                   objFSO.DeleteFile objFile.Path
                   Wscript.Echo "File deleted"
                 End If
@@ -100,13 +102,13 @@ Next
 strDel = strDel
 ShowSubfolders objFSO.GetFolder(objStartFolder)
 Wscript.Echo "---------------------------------------------------------"
-Wscript.Echo "Found " & iCount & " files larger than " & objMB & " MB totaling " & Left(iTooMuch /1024 /1024,4) & " MB"
-Wscript.Echo "Total path size : " & Left(iTotal / 1024 / 1024,4) & " MB"
+Wscript.Echo "Found " & iCount & " files larger than " & objMB & " MB totaling " & Left(iTooMuch  /1024,5) & " Gb"
+Wscript.Echo "Total path size : " & Left(iTotal /1024,5) & " Gb"
 if iDeleted > 0 Then
   iNew = iTotal - iDeleted
-  Wscript.Echo "New Total path size : " & Left(iNew / 1024 / 1024,4) & " MB"
+  Wscript.Echo "New Total path size : " & Left(iNew  /1024,5) & " Gb"
 Else
-  Wscript.Echo "Possible Total path size : " & Left(iTotalWithout / 1024 / 1024 ,4) & " MB"
+  Wscript.Echo "Possible Total path size : " & Left(iTotalWithout   /1024,5) & " Gb"
 End If
 Wscript.Echo "---------------------------------------------------------"
 
@@ -128,16 +130,16 @@ Sub ShowSubFolders(Folder)
         For Each objFile in colFiles
         On Error Resume Next
 
-            iTotal = iTotal + objFile.Size
-            iTotalWithout= iTotalWithout + objFile.Size
+            iTotal = iTotal + (objFile.Size /1024 /1024)
+            iTotalWithout= iTotalWithout + (objFile.Size /1024 /1024)
             If objFile.Size /1024 /1024  > objMB Then
                 iCount = iCount + 1
                 Wscript.Echo ""
                 Wscript.Echo "PATH > " & Replace(objFile.Path , objFile.Name , "")
                 Wscript.Echo "NAME > " & objFile.Name
                 Wscript.Echo "SIZE > " & Left(objFile.Size /1024 /1024 ,4) & " MB"
-                iTooMuch = iTooMuch + objFile.Size
-                iTotalWithout = iTotalWithout - objFile.Size
+                iTooMuch = iTooMuch + (objFile.Size /1024 /1024)
+                iTotalWithout = iTotalWithout - (objFile.Size /1024 /1024)
 
 
                 If del = "1" Then
@@ -145,7 +147,7 @@ Sub ShowSubFolders(Folder)
                     WScript.StdIn.Read(0)
                     del2 = WScript.StdIn.ReadLine()
                     If Ucase(del2) = "Y" Then
-                      iDeleted = iDeleted + objFile.Size
+                      iDeleted = iDeleted + (objFile.Size /1024 /1024)
                       objFSO.DeleteFile objFile.Path
                       Wscript.Echo "File deleted"
                     End If
@@ -158,7 +160,7 @@ Sub ShowSubFolders(Folder)
 
 
                 If del = "2" Then
-                iDeleted = iDeleted + objFile.Size
+                iDeleted = iDeleted + (objFile.Size /1024 /1024)
                   objFSO.DeleteFile objFile.Path
                   Wscript.Echo "File deleted"
                 End If
