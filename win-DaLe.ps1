@@ -27,6 +27,7 @@ $Menu3 = "Handle GIT repositories"
 $Menu4 = "Get info"
   $Menu41 = "List drive info"
   $Menu42 = "Show antivirus and firewall status"
+  $Menu43 = "Get directory size"
 
 $Menu66 = "Back to main menu"
 $Menu99 = "Show description"

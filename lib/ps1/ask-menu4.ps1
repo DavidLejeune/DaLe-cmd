@@ -38,6 +38,20 @@ switch ($Menu)
           .\lib\ps1\ask-continue.ps1;
         }
 
+        3
+          {
+            $Menu = "$(($Menu43).ToUpper())";
+            .\lib\ps1\show-top.ps1;
+            Write-Host ""
+            $Host.UI.RawUI.ForegroundColor = 'magenta'
+            $directory = Read-Host -Prompt 'enter folder path to measure ';
+
+            Write-Host "Measuring the shizznit out of this thing ..." -ForegroundColor white
+            $Host.UI.RawUI.ForegroundColor = 'darkgreen'
+            .\lib\ps1\get-directorysize.ps1;
+            .\lib\ps1\ask-continue.ps1;
+          }
+
         66
           {
               $Menu = "$(($Menu66).ToUpper())";
