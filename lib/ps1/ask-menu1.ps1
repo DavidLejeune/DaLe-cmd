@@ -17,6 +17,7 @@ switch ($Menu)
           {
             $Menu = "$(($Menu12).ToUpper())";
             .\lib\ps1\show-top.ps1;
+            cscript //nologo .\lib\vbs\log_bigfiles.vbs
           }
 
         66
