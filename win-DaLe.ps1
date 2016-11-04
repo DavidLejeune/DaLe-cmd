@@ -1,4 +1,4 @@
-
+$Host.UI.RawUI.BackgroundColor = ($bckgrnd = 'Black')
 
 #------------------------------------------------------------------------------
 #Script Variables
