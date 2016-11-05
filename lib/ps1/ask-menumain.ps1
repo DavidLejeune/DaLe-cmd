@@ -31,10 +31,18 @@ switch ($Menu)
 
         4
           {
-            $Menu = "$(($Menu3).ToUpper())";
+            $Menu = "$(($Menu4).ToUpper())";
             .\lib\ps1\show-top.ps1;
             .\lib\ps1\show-menu4.ps1;
             .\lib\ps1\ask-menu4.ps1;
+          }
+
+        5
+          {
+            $Menu = "$(($Menu5).ToUpper())";
+            .\lib\ps1\show-top.ps1;
+            .\lib\ps1\show-menu5.ps1;
+            .\lib\ps1\ask-menu5.ps1;
           }
 
         q
