@@ -30,8 +30,9 @@ $Menu4 = "Get info"
   $Menu43 = "Get directory size"
 
 $Menu5 = "Tools"
-  $Menu51 = "Shutdown Now"
-  $Menu52 = "Eject media"
+  $Menu51 = "Shutdown system Now"
+  $Menu52 = "Restart system Now"
+  $Menu53 = "Eject media"
 
 $Menu66 = "Back to main menu"
 $Menu99 = "Show description"

@@ -39,5 +39,11 @@ switch ($Menu)
             .\lib\ps1\quit-this.ps1
           }
 
+                    ""
+                      {
+                          #Write-Host "`nYou have selected $(($Menu99).ToUpper())`n";
+                          $Menu = $Menu0
+                          .\lib\ps1\startup.ps1
+                      }
         default {"The choice could not be determined."}
     }

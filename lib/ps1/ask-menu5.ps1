@@ -16,27 +16,34 @@ switch ($Menu)
         {
           $Menu = "$(($Menu52).ToUpper())";
           .\lib\ps1\show-top.ps1;
-          $Host.UI.RawUI.ForegroundColor = 'white'
-          Write-Host "showing all drives"
-          $Host.UI.RawUI.ForegroundColor = 'green'
-          .\lib\ps1\info-drives.ps1
-          $Host.UI.RawUI.ForegroundColor = 'magenta'
-          $drive = Read-Host -Prompt 'Type a drive letter of media to eject';
-          $drive="$(($drive).ToUpper()):";
-          $Host.UI.RawUI.ForegroundColor = 'darkgreen'
-          if ($drive.length -eq 2)
-          {
-            .\lib\ps1\eject-media.ps1
-            Write-Host "It is now safe to remove the device" -ForegroundColor white
-          }
-          if ($drive.length -eq 1)
-          {
-              Write-Host "You didn't enter shit" -ForegroundColor red
-
-          }
-          .\lib\ps1\ask-continue.ps1;
+          shutdown.exe /s /t 1
         }
 
+
+        3
+          {
+            $Menu = "$(($Menu53).ToUpper())";
+            .\lib\ps1\show-top.ps1;
+            $Host.UI.RawUI.ForegroundColor = 'white'
+            Write-Host "showing all drives"
+            $Host.UI.RawUI.ForegroundColor = 'green'
+            .\lib\ps1\info-drives.ps1
+            $Host.UI.RawUI.ForegroundColor = 'magenta'
+            $drive = Read-Host -Prompt 'Type a drive letter of media to eject';
+            $drive="$(($drive).ToUpper()):";
+            $Host.UI.RawUI.ForegroundColor = 'darkgreen'
+            if ($drive.length -eq 2)
+            {
+              .\lib\ps1\eject-media.ps1
+              Write-Host "It is now safe to remove the device" -ForegroundColor white
+            }
+            if ($drive.length -eq 1)
+            {
+                Write-Host "You didn't enter shit" -ForegroundColor red
+
+            }
+            .\lib\ps1\ask-continue.ps1;
+          }
 
 
         66
