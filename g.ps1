@@ -1,7 +1,7 @@
 #automation script for handling this git repo
 
 
-
+cls
 Write-Host '      ____              __        ' -ForegroundColor White
 Write-Host '     / __ \   ____ _   / /      ___ ' -ForegroundColor White
 Write-Host '    / / / /  / __ `/  / /      / _ \' -ForegroundColor White
@@ -27,14 +27,27 @@ git add .
 
 $Host.UI.RawUI.ForegroundColor = 'white'
 $message = Read-Host -Prompt 'Enter the commit message ';
-$message = [char]34 + $message + [char]34
-$Host.UI.RawUI.ForegroundColor = 'yellow'
-git commit -m $message
 
-Write-Host ""
+if ($message.length -gt 1)
+{
 
-$Host.UI.RawUI.ForegroundColor = 'magenta'
-Write-Host "Pushing that shit ....."
-git push lab master ; git push origin master
+  $message = [char]34 + $message + [char]34
+  $Host.UI.RawUI.ForegroundColor = 'yellow'
+  git commit -m $message
 
-Write-Host ""
+  Write-Host ""
+
+  $Host.UI.RawUI.ForegroundColor = 'red'
+  Write-Host "Pushing that shit ....."
+  $Host.UI.RawUI.ForegroundColor = 'magenta'
+  git push lab master ; git push origin master
+
+  Write-Host ""
+
+}
+else
+{
+
+    $Host.UI.RawUI.ForegroundColor = 'red'
+    Write-Host "You are a special kind of stupid ... enter a freaking message!"
+}
