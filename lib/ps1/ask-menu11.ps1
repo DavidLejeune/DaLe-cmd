@@ -31,6 +31,12 @@ switch ($Menu)
           {
             .\lib\ps1\quit-this.ps1
           }
-
+          ""
+            {
+              $Menu = "$(($Menu11).ToUpper())";
+              .\lib\ps1\show-top.ps1;
+              .\lib\ps1\show-menu11.ps1;
+              .\lib\ps1\ask-menu11.ps1;
+            }
         default {"The choice could not be determined."}
     }

@@ -64,9 +64,10 @@ switch ($Menu)
 
                     ""
                       {
-                          #Write-Host "`nYou have selected $(($Menu99).ToUpper())`n";
-                          $Menu = $Menu0
-                          .\lib\ps1\startup.ps1
+                          $Menu = "$(($Menu4).ToUpper())";
+                        .\lib\ps1\show-top.ps1;
+                        .\lib\ps1\show-menu4.ps1;
+                        .\lib\ps1\ask-menu4.ps1;
                       }
         default {"The choice could not be determined."}
     }
