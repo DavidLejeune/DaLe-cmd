@@ -16,7 +16,7 @@ switch ($Menu)
         {
           $Menu = "$(($Menu52).ToUpper())";
           .\lib\ps1\show-top.ps1;
-          shutdown.exe /s /t 1
+          shutdown.exe /r /t 1
         }
 
 
