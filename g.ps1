@@ -49,5 +49,7 @@ else
 {
 
     $Host.UI.RawUI.ForegroundColor = 'red'
-    Write-Host "You are a special kind of stupid ... enter a freaking message!"
+      Write-Host ""
+    Write-Host "That's not regular stupid, that's advanced stupid`nEnter a freaking message next time!"
+      Write-Host ""
 }
